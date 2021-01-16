@@ -9,6 +9,11 @@ const AddToCart = ({ product }) => {
   const { id, stock, colors } = product;
   // console.log(colors);
   const [mainColor, SetMainColor] = useState(colors[0]);
+  const [amount, setAmount] = useState(1);
+
+  const increase = () => {};
+
+  const decrease = () => {};
 
   return (
     <Wrapper>
@@ -20,18 +25,27 @@ const AddToCart = ({ product }) => {
               <button
                 key={index}
                 style={{ background: color }}
-                className={`${mainColor === color?'color-btn active:' : 'color-btn'}`}
-                onClick={()=> SetMainColor(color)}
-
+                className={`${
+                  mainColor === color ? "color-btn active:" : "color-btn"
+                }`}
+                onClick={() => SetMainColor(color)}
               >
-
                 {mainColor === color ? <FaCheck /> : null}
               </button>
             );
           })}
         </div>
       </div>
-      <div className="btn-container"></div>
+      <div className="btn-container">
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+        <Link to="/cart" className="btn">
+          add to cart
+        </Link>
+      </div>
     </Wrapper>
   );
 };
