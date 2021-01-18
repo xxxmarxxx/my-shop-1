@@ -17,6 +17,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="comfy sloth" />
           </Link>
+      
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
@@ -42,11 +43,13 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color:#dfdfdf;
 
   .nav-center {
     width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
+    /* background-color:#f9f4f4; */
   }
   .nav-header {
     display: flex;
@@ -80,6 +83,7 @@ const NavContainer = styled.nav`
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
+      /* background-color:#f9f4f4; */
     }
     .nav-links {
       display: flex;
