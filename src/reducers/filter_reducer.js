@@ -34,9 +34,20 @@ const filter_reducer = (state, action) => {
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
     let tempProducts = [...filtered_products];
-
+    // zmiana bo nie mialem tego w code?
+    // if (sort === "price-lowest") {
+    //   tempProducts = tempProducts.sort((a, b) =>  a.price - b.price);
+    // }
     if (sort === "price-lowest") {
-      tempProducts = tempProducts.sort((a, b) => a.price - b.price);
+      tempProducts = tempProducts.sort((a, b) => {
+        if (a.price < b.price) {
+          return -1;
+        }
+        if (a.price > b.price) {
+          return 1;
+        }
+        return 0;
+      });
     }
     if (sort === "price-highest") {
       tempProducts = tempProducts.sort((a, b) => b.price - a.price);
@@ -57,9 +68,9 @@ const filter_reducer = (state, action) => {
     const { name, value } = action.payload;
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
-  if(action.type === FILTER_PRODUCTS){
-    console.log('filtering products');
-    return {...state}
+  if (action.type === FILTER_PRODUCTS) {
+    console.log("filtering products");
+    return { ...state };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
