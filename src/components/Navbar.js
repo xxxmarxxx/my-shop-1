@@ -50,7 +50,8 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dfdfdf;
+  background-color: #efe9e4;
+  /* border-bottom: solid 2px #b0b0b0; */
 
   .nav-center {
     width: 90vw;
